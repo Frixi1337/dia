@@ -1,0 +1,1417 @@
+.forgotPassword {
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.bg {
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+html,
+body {
+    overflow-x: hidden;
+    overflow-y: hidden;
+    overscroll-behavior: none;
+    overflow: hidden
+}
+
+* :not(input) {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none
+}
+
+.loadpage {
+    width: 100%;
+    height: 100vh;
+    /* Полный экран */
+    z-index: 9999999999999999999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    background: linear-gradient(145deg, #b2d2e9 40%, #dbefd6 70%);
+    overflow: hidden;
+    /* Чтобы видео не вылезало */
+}
+
+#intro-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Заполняет экран */
+}
+
+.update-btn {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 24px;
+    font-size: 16px;
+    font-weight: 300;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.update-btn:hover {
+    background-color: #333;
+    transform: scale(1.05);
+}
+
+.error-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.error-popup.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.error-content {
+    background: white;
+    border-radius: 20px;
+    padding: 30px 25px;
+    text-align: center;
+    max-width: 320px;
+    width: 90%;
+    position: relative;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.error-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    color: #aaa;
+    cursor: pointer;
+}
+
+.sad-face {
+    font-size: 56px;
+    margin-bottom: 16px;
+}
+
+.error-content h3 {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0 0 20px 0;
+    color: #000;
+}
+
+.error-retry {
+    padding: 12px 32px;
+    background: white;
+    color: black;
+    border: 2px solid black;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.error-retry:hover {
+    background: black;
+    color: white;
+}
+
+.update-btn:active {
+    transform: scale(0.95);
+}
+
+.error-icon {
+    background-color: black;
+    border-radius: 50%;
+    padding: 8px;
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 10px;
+}
+
+.error-icon img {
+    width: 18px;
+    height: 18px;
+    filter: brightness(0) invert(1);
+    /* Белый цвет, как у иконок в меню */
+    object-fit: contain;
+}
+
+.error-icon svg {
+    width: 18px;
+    height: 18px;
+}
+
+.no-internet-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.no-internet-modal.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.no-internet-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    max-width: 300px;
+    width: 90%;
+}
+
+.sad-emoji {
+    font-size: 40px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.no-internet-content p {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.4;
+    margin: 0;
+}
+
+@font-face {
+    font-family: 'e-UkraineHead';
+    font-weight: 500;
+    font-style: normal;
+    src: url('../fonts/e-Ukraine-Regular.woff') format('woff');
+
+}
+
+.nonono {
+    text-align: center;
+}
+
+
+.loadpage {
+    width: 100%;
+    height: 100%;
+    z-index: 9999999999999999999999;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: absolute;
+
+    background: linear-gradient(145deg, #b2d2e9 40%, #dbefd6 70%);
+}
+
+
+.loadtext {
+    font-family: 'e-UkraineHead';
+    font-size: .875rem;
+    line-height: 1.3125rem;
+    z-index: 2323234234234;
+
+}
+
+.zublogo {
+    background-image: url(../images/uasign.svg);
+    width: 75px;
+    height: 75px;
+    z-index: 234231;
+    position: absolute;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.diyalogo {
+    background-image: url(../images/diya.svg);
+    width: 75px;
+    height: 75px;
+    z-index: 234234;
+    position: absolute;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'e-UkraineHead';
+    box-sizing: border-box;
+
+}
+
+html,
+body {
+    overflow: hidden;
+}
+
+.bg-start {
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    background: linear-gradient(145deg, #b2d2e9 40%, #dbefd6 70%);
+    /*background: linear-gradient(145deg, #b2d2e9, #dbefd6, #b2d2e9, #dbefd6);*/
+
+    display: flex;
+    align-items: center;
+    position: relative;
+    justify-content: center;
+
+
+    /*background-size: 400% 400%;*/
+    /*animation: 15s linear 0s infinite alternate none running gradientAnimation*/
+    /*         background: linear-gradient(217deg, rgba(217, 51, 51, 0.8), rgba(255, 0, 0, 0) 50.71%), linear-gradient(127deg, rgba(57, 202, 57, 0.8), rgba(0, 255, 0, 0) 70.71%), linear-gradient(336deg, rgba(65, 65, 202, 0.8), rgba(0, 0, 255, 0) 70.71%);*/
+    /*         background-size: 150vw 150vh;*/
+    /*animation: 15s linear 0s infinite alternate none running granimate*/
+
+
+
+
+}
+
+@supports (-webkit-touch-callout: none) {}
+
+@keyframes granimate {
+
+    0%,
+    100% {
+        background-position: 0 25%
+    }
+
+    25%,
+    75% {
+        background-position: 50% 50%
+    }
+
+    50% {
+        background-position: 100% 100%
+    }
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background: linear-gradient(145deg, #b2d2e9, #f1e3b2);
+        /* бирюзово-желтый */
+
+    }
+
+    12.5% {
+        background: linear-gradient(145deg, #dbefd6, #d3b2f1);
+        /* зеленовато-желтый и фиолетово-желтый */
+
+    }
+
+    25% {
+        background: linear-gradient(145deg, #b2d2e9, #d3b2f1);
+        /* бирюзово-фиолетовый */
+
+    }
+
+    37.5% {
+        background: linear-gradient(145deg, #f1e3b2, #dbefd6);
+        /* желтовато-зеленый */
+
+    }
+
+    50% {
+        background: linear-gradient(145deg, #b2d2e9, #f1e3b2);
+        /* бирюзово-желтый */
+
+    }
+
+    62.5% {
+        background: linear-gradient(145deg, #dbefd6, #d3b2f1);
+        /* зеленовато-желтый и фиолетово-желтый */
+
+    }
+
+    75% {
+        background: linear-gradient(145deg, #b2d2e9, #d3b2f1);
+        /* бирюзово-фиолетовый */
+
+    }
+
+    87.5% {
+        background: linear-gradient(145deg, #f1e3b2, #dbefd6);
+        /* желтовато-зеленый */
+
+    }
+
+    100% {
+        background: linear-gradient(145deg, #b2d2e9, #f1e3b2);
+        /* бирюзово-желтый */
+
+    }
+
+}
+
+
+
+
+
+.swiper-pagination {
+    position: unset;
+}
+
+.swiper-pagination>.swiper-pagination-bullet {
+    background: #fff;
+    opacity: 0.4;
+}
+
+.swiper-pagination>.swiper-pagination-bullet-active {
+    background: #fff;
+    opacity: 1;
+}
+
+.swiper-pagination2 {
+    position: unset;
+    text-align: center;
+}
+
+.swiper-pagination2>.swiper-pagination-bullet {
+    background: #a1a1a1;
+}
+
+.swiper-pagination2>.swiper-pagination-bullet-active {
+    background: black;
+}
+
+.start-div {
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    background: linear-gradient(145deg, #b2d2e9 40%, #dbefd6 70%);
+}
+
+.start-div.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.start-div>h1 {
+    font-weight: 300;
+    font-size: 26px;
+}
+
+.start-block {
+    display: grid;
+    grid-template-columns: repeat(3, 88px);
+    grid-template-rows: repeat(4, 88px);
+    gap: 20px;
+    justify-content: center;
+    margin: 40px auto 0;
+    width: fit-content;
+    margin-bottom: 20px;
+}
+
+/* Все круглые элементы */
+.start-block>button,
+.start-block>.biometry-btn {
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    border: none;
+    background: #eef7f2;
+    font-size: 34px;
+    font-weight: 300;
+    color: #000 !important;
+    /* ← чёрные цифры навсегда */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Биометрия — полностью видно, без обрезки */
+.biometry-btn {
+    background: transparent !important;
+    padding: 16px;
+    /* отступ внутри круга */
+    box-sizing: border-box;
+}
+
+.biometry-btn img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+
+    pointer-events: none;
+    border-radius: 0 !important;
+}
+
+/* Ноль — обычная кнопка */
+.zero-btn {
+    background: #eef7f2 !important;
+}
+
+/* Удалить — прозрачный фон, чёрная стрелка */
+.delete-btn {
+    background: transparent !important;
+    color: #000 !important;
+}
+
+.start-vhod {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.start-vhod>div {
+    background: #f4f6f1;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.start-vhod>div.active {
+    background: black;
+}
+
+.main {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.footer {
+    z-index: 2;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    color: #fff;
+    background-color: black;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer>div>span {
+    font-size: 12px;
+}
+
+.footer>div>img {
+    filter: brightness(0) invert(1);
+    width: 25px;
+    height: 25px;
+}
+
+.footer>div {
+    width: max-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.main.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.block {
+    display: none;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.block.active {
+    display: block;
+}
+
+
+.textVizit {
+    display: flex;
+    font-size: 28px;
+    font-weight: 300;
+    gap: 7px;
+    width: 100%;
+    margin-top: 15px;
+
+    margin-bottom: 15px;
+}
+
+.block1 {
+    padding: 0 25px;
+}
+
+.block2.active {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.pre {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+}
+
+.nezlamnist {
+    background: #d9eaf4;
+    padding: 15px;
+    border-radius: 12px;
+    width: 100%;
+}
+
+.nezlamnist>h2 {
+    font-weight: 300;
+    font-size: 20px;
+}
+
+.nezlamnist>p {
+    font-size: 12px;
+    margin-top: 13px;
+}
+
+.nezlamnist-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.lightSrc {
+    width: 55px;
+}
+
+.arrowSvg {
+    padding: 6px;
+    background-color: black;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.arrowSvg>img {
+    width: 14px;
+    height: 14px;
+    object-fit: contain;
+    transform: rotate(180deg);
+    filter: brightness(0) invert(1);
+}
+
+.threeButtons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 30px 0;
+    width: 100%;
+}
+
+.threeButtons>div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100px;
+}
+
+.threeButtons>div>span {
+    font-size: 13px;
+    margin-top: 7px;
+    word-break: keep-all;
+}
+
+.threeButtons>div>div {
+    background: black;
+    padding: 18px;
+    border-radius: 35%;
+    display: flex;
+    align-items: center;
+}
+
+.threeButtons>div>div>img {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+}
+
+#buttonLoad {
+    cursor: pointer;
+}
+
+.aod {
+    width: 100%;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+.aod>img {
+    width: 100%;
+    border-radius: 17px;
+}
+
+.aod1 {
+    width: 100%;
+    cursor: pointer;
+
+}
+
+.aod1>img {
+    width: 100%;
+    border-radius: 15px;
+}
+
+.popular_poslugu_block {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-radius: 13px;
+    background: #fff;
+}
+
+.popular_poslugu_block>div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    border-bottom: 2px solid #e9edee;
+}
+
+.popular_poslugu {
+    align-self: flex-start;
+    margin: 30px 0 15px 0;
+}
+
+.popular_none {
+    border: none !important;
+}
+
+.popular_poslugu_block>div>span {
+    font-weight: 300;
+    font-size: 15px;
+}
+
+.slider {
+    width: 95%;
+    transform-style: preserve-3d;
+    transition: transform 0.4s;
+    position: relative;
+    min-width: 0;
+    height: 100%;
+}
+
+.front {
+    position: fixed;
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.back {
+    position: relative;
+    background: #fff;
+}
+
+.front,
+.back {
+    width: 100%;
+    backface-visibility: hidden;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+
+    padding: 20px 15px;
+    border-radius: 20px;
+    -webkit-backface-visibility: hidden;
+    height: 100%;
+}
+
+.back.flipped {
+    transform: rotateY(0);
+}
+
+.back {
+    transform: rotateY(180deg);
+}
+
+.moreInfo {
+    position: absolute;
+    bottom: 20px;
+    right: 15px;
+}
+
+.front>h1 {
+    font-size: 22px;
+    font-weight: 300;
+    margin-bottom: 15px;
+}
+
+.fioBlock {
+    margin-right: 30px;
+    position: relative;
+}
+
+.fioBlock>h2 {
+    font-size: 21px;
+    font-weight: 300;
+    margin-top: 10px;
+    width: 0;
+}
+
+.dataBlock {
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+}
+
+.dataBlock>img {
+    width: 135px;
+    height: 180px;
+    border-radius: 12px;
+}
+
+.dataInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.dataInfo>img {
+    width: 100px;
+    object-fit: contain;
+}
+
+.dataInfo>div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    width: 0;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.notification {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 10px 10px 10px 10px;
+    padding-top: env(safe-area-inset-top,
+            10px);
+    /* 10px fallback for older browsers */
+    background-color: #66c67f;
+    color: black;
+    text-align: center;
+    transition: transform 0.3s;
+    transform: translateY(-100%);
+    z-index: 1000;
+    font-size: 13px;
+}
+
+.notification.show {
+    transform: translateY(0);
+}
+
+@supports (padding-top: env(safe-area-inset-top)) {
+    .notification {
+        padding-top: env(safe-area-inset-top);
+    }
+
+    .block2.active {
+        padding-top: calc(15px + env(safe-area-inset-top));
+    }
+
+    .block1 {
+        padding-top: calc(15px + env(safe-area-inset-top)) !important;
+    }
+}
+
+@supports (padding-bottom: env(safe-area-inset-top)) {
+
+
+    .footer {
+        padding-bottom: calc(15px + env(safe-area-inset-bottom));
+    }
+}
+
+.qrcodeBlock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 20px 10px 20px;
+    height: 100%;
+}
+
+.qrcodeBlock>span {
+    font-size: 13px;
+    color: #a1a1a1;
+}
+
+.qrshBlock {
+    height: 252px;
+}
+
+.qrcode {
+    background-image: url(../images/qr-dd.png);
+    background-size: contain;
+    background-position: center;
+    width: 252px;
+    margin-top: 10px;
+    height: 252px;
+}
+
+.shcode {
+    background-image: url(../images/nu1q5DK.png);
+    background-size: contain;
+    background-position: center;
+    width: 252px;
+    margin-top: 20px;
+    height: 76px;
+}
+
+.start-div {
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    background: linear-gradient(145deg, #b2d2e9 40%, #dbefd6 70%);
+    z-index: 9999;
+    transition: opacity 0.3s ease;
+    /* Плавное исчезновение */
+}
+
+.start-div.active {
+    pointer-events: all;
+    opacity: 1;
+}
+
+/* Состояние перед удалением */
+.start-div.hiding {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    z-index: -1;
+    display: none;
+}
+
+
+.video-background.active {
+    display: block;
+}
+
+#background-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: 100vh;
+    z-index: -1;
+    transform: translate(-50%, -50%);
+}
+
+.news {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.news>img {
+    width: 100%;
+    height: auto;
+}
+
+.news>div {
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+    padding-top: 10px;
+}
+
+.news>div>span {
+    font-size: 12px;
+    color: #a1a1a1;
+    margin-bottom: 7px;
+}
+
+.news>div>p {
+    font-weight: 300;
+    font-size: 15px;
+}
+
+
+.news-main {
+    height: auto;
+}
+
+.container-news {
+    width: 100%;
+}
+
+
+.document_block_div {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    padding: 20px 10px;
+    z-index: 10;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    transition: 0.2s all;
+
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+    padding-bottom: 40px
+}
+
+.document_block_div.active {
+    opacity: 1;
+    pointer-events: all;
+    visibility: visible;
+}
+
+.document_block_div>div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    transform: translateY(100%);
+    transition: 0.4s all;
+}
+
+.document_block_div>div.active {
+    transform: translateY(0);
+}
+
+.main_block {
+    width: 100%;
+    background-color: #fff;
+    border-radius: 17px;
+    flex-direction: column;
+    padding: 10px 15px;
+}
+
+.main_block>div {
+    display: flex;
+    align-items: center;
+    padding: 15px 15px;
+    gap: 15px;
+}
+
+.main_block>div>img {
+    width: 18px;
+    height: 18px;
+}
+
+.main_block>div>span {
+    font-size: 14px;
+}
+
+.border {
+    border-bottom: 1px solid #e9edee;
+}
+
+.close_block {
+    background-color: #fff;
+    font-size: 16px;
+    text-align: center;
+    padding: 15px 0;
+    border-radius: 24px;
+}
+
+
+.modal {
+    position: fixed;
+    top: 100%;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background-color: #f2f6f7;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 20px 20px 0 0;
+    transition: top 0.5s;
+    z-index: 1001;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-content {
+    padding: 10px 20px 100px 20px;
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+.modal-content>h1 {
+    font-size: 22px;
+    font-weight: 300;
+    margin-top: 10px;
+}
+
+.numberNN {
+    margin: 15px 0 13px 0;
+    display: flex;
+    align-items: center;
+}
+
+.numberNN>h3 {
+    font-size: 27px;
+    font-weight: 300;
+}
+
+.copyPng {
+    width: 18px;
+}
+
+.handle {
+    width: 40px;
+    height: 5px;
+    background-color: #ccc;
+    border-radius: 5px;
+    margin: 10px auto;
+}
+
+.open {
+    top: 5%;
+}
+
+/* Учитываем вырезы на экранах */
+
+
+.fullPasportBlock {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 12px;
+    margin-top: 20px;
+}
+
+.fullPasportBlock>h2 {
+    font-size: 22px;
+    font-weight: 300;
+}
+
+.fullPasportBlock>h3 {
+    font-size: 16px;
+    font-weight: 300;
+    margin: 7px 0 13px 0;
+}
+
+.dataBlock2 {
+    margin: 15px 0 0 0;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 12px;
+    gap: 15px;
+}
+
+.dataBlock2>div {
+    display: flex;
+}
+
+.dataBlock2>div>div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    gap: 3px;
+}
+
+.dataBlock2>div>div>h3 {
+    font-size: 13px;
+    font-weight: 300;
+}
+
+.dataBlock2>div>div>span {
+    font-size: 13px;
+    color: #a1a1a1;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    transition: opacity 0.3s;
+}
+
+.hidden {
+    display: none;
+}
+
+.qrChange {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-top: auto;
+}
+
+.qrChange>div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.qrChange>div>div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #ddd;
+    padding: 13px;
+}
+
+.qrChange>div>div>img {
+    width: 22px;
+    height: 22px;
+}
+
+.qrChangeInfo {
+    display: flex;
+    align-items: center;
+    gap: 70px !important;
+    margin-top: 10px;
+    justify-content: center;
+    margin: 0 !important;
+    padding: 15px 0 !important;
+}
+
+.qrChangeInfo>div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.qrChangeInfo>div>div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #ddd;
+    padding: 13px;
+}
+
+.qrChangeInfo>div>div>img {
+    width: 22px;
+    height: 22px;
+}
+
+.shText {
+    margin: 20px 0;
+    text-align: center;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+
+.swiper-container {
+    max-width: 100%;
+    height: 60%;
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+
+}
+
+
+
+.search {
+    width: 100%;
+    background: #fff;
+    position: relative;
+    padding: 10px 10px;
+    font-size: 13px;
+    color: #a1a1a1;
+    border-radius: 15px;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.search>img {
+    width: 18px;
+    height: 18px;
+}
+
+.services {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-bottom: 200px;
+}
+
+.services>div {
+    background: rgba(255, 255, 255, 0.4);
+    display: flex;
+    flex-direction: column;
+    height: 110px;
+    justify-content: space-between;
+    padding: 15px;
+    border-radius: 12px;
+    width: 100%;
+    flex: 1 1 calc(50% - 10px);
+    /* Учитывая зазор между элементами */
+    margin: 5px;
+    /* Зазор между элементами */
+}
+
+.services>div>span {
+    font-size: 13px;
+}
+
+.services>div>div {
+    /* border-radius: 50%;
+                        padding: 5px;
+                        background: black;
+                        width: max-content; */
+    padding: 8px;
+    background-color: black;
+    width: max-content;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.services>div>div>img {
+    filter: brightness(0) invert(1);
+    width: 18px;
+    height: 18px;
+    transform: rotate(0);
+    object-fit: contain;
+}
+
+
+.columnMenu {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    margin-top: 25px;
+}
+
+.columnMenu>button {
+    font-size: 15px;
+    padding: 12px 0;
+    width: 160px;
+    text-align: center;
+    background: black;
+    border-radius: 24px;
+    border: transparent;
+    color: #fff;
+    align-self: center;
+    font-weight: 300;
+    margin-top: 15px;
+}
+
+.columnMenu>span {
+    margin-top: 5px;
+    text-align: center;
+    font-size: 11px;
+    text-decoration: underline;
+}
+
+.columnMenu>div {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    width: 100%;
+    border-radius: 12px;
+}
+
+.columnMenu>div>div {
+    display: flex;
+    gap: 10px;
+    padding: 15px 15px;
+    align-items: center;
+}
+
+.columnMenu>div>div>img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.columnMenu>div>div>span {
+    font-size: 15px;
+}
+
+html,
+body {
+    touch-action: manipulation;
+
+}
